@@ -4,6 +4,7 @@ from django.db import models
 
 class ImpresoraDjango(models.Model):
   id = models.IntegerField(primary_key=True)
+  # id = models.AutoField(primary_key=True)
   nombre_impresora = models.TextField(max_length=50)
   modelo = models.TextField(max_length=50)
   marca = models.TextField(max_length=50) 

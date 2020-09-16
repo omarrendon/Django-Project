@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name="index"),
     path('crear/', views.IndexCreate.as_view(), name="create"),
+    path('eliminar/<int:pk>/', views.IndexDelete.as_view(), name="delete"),
+
     # path('', views.index, name="indexPrincipal"),
     # path('resultado/', views.resultado, name="resultado"),
 

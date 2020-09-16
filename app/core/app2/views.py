@@ -29,6 +29,15 @@ class IndexCreate(CreateView):
   ]
   success_url = reverse_lazy('index')
 
+class IndexDelete(DeleteView):
+  model = ImpresoraDjango
+  context_object_name = 'impresora'
+  template_name = 'delete.html'
+  success_url = reverse_lazy('index')
+
+
+
+
 
 # cambio de funciones por vistas 
 # def buscar( request  ):

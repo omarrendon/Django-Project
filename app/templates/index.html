@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Django App</title>
 </head>
+
 <body>
   <!-- {% if impresoraList %} -->
-    
-    {% for impresora in impresoraList %}
-      <p>Nombre de la impresora : {{ impresora.nombre_impresora }}</p>
-    {% endfor %}
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for impresora in impresoraList %}
+      <tr>
+        <td>
+          <p>Nombre de la impresora : {{ impresora.nombre_impresora }}</p>
+        </td>
+        <td>
+          <a class="btn btn-danger" href="{% url 'delete' impresora.id %}">Eliminar {{impresora.id}}</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
   <!-- {% else %} -->
-  
-    <!-- <p>No hay nada</p>
+
+  <!-- <p>No hay nada</p>
   {% endif %} -->
 </body>
+
 </html>
-
-

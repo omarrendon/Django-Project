@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 from core.app2 import views
-# from . import views
+# app_name = 'impresoras'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name="index"),
-    # path('busqueda/', views.buscar, name="index"),
+    path('crear/', views.IndexCreate.as_view(), name="create"),
     # path('', views.index, name="indexPrincipal"),
     # path('resultado/', views.resultado, name="resultado"),
 

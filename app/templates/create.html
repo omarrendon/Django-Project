@@ -6,6 +6,9 @@
   <title> Resultado</title>
 </head>
 <body>
-  <h1>ESTA PAGINA ES DEL RESULTADO</h1>
+  <form method="POST" action="">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Guardar</button>
+  </form>
 </body>
 </html>

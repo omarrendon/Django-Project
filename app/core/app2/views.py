@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.urls import reverse_lazy
 from .models import ImpresoraDjango
 
-from django.views.generic import ListView, DeleteView, UpdateView, DetailView
+from django.views.generic import ListView, DeleteView, UpdateView, CreateView
 
 # Create your views here.
 
@@ -12,7 +12,25 @@ class IndexView(ListView):
   context_object_name = 'impresoraList'
   template_name = 'index.html'
 
+class IndexCreate(CreateView):
+  model = ImpresoraDjango
+  template_name = 'create.html'
+  fields = [
+    'id',
+    'nombre_impresora',
+    'modelo',
+    'marca',
+    'fecha_compra',
+    'ultimo_mantenimiento',
+    'ubicacion_fisica',
+    'nombre_responsable',
+    'correo_responsable',
+    'ip'
+  ]
+  success_url = reverse_lazy('index')
 
+
+# cambio de funciones por vistas 
 # def buscar( request  ):
 #   return render( request, 'index.html' )
 

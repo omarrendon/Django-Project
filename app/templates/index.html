@@ -1,18 +1,21 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title> 
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <title>Django App</title>
 </head>
 <body>
-  <h1> {{ message }} </h1>
-  {% for producto in productos %}
-    <p> {{producto.title}} </p>
-  {% endfor %}
-
-  <script src="{% static 'js/main.js' %}"></script>
+  <!-- {% if impresoraList %} -->
+    
+    {% for impresora in impresoraList %}
+      <p>Nombre de la impresora : {{ impresora.nombre_impresora }}</p>
+    {% endfor %}
+  <!-- {% else %} -->
+  
+    <!-- <p>No hay nada</p>
+  {% endif %} -->
 </body>
 </html>
+
+

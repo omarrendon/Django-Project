@@ -17,7 +17,9 @@
       </tr>
     </thead>
     <tbody>
-
+      <p>Crear nuevo registro </p>
+      <a href="{% url 'create'  %}"> + </a>
+      <hr>
       {% for impresora in impresoraList %}
       <tr>
         <td>
@@ -25,15 +27,15 @@
         </td>
         <td>
           <a class="btn btn-danger" href="{% url 'delete' impresora.id %}">Eliminar {{impresora.id}}</a>
+          <a class="btn btn-danger" href="{% url 'update' impresora.id %}">Editar {{impresora.id}}</a>
         </td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
-  <!-- {% else %} -->
-
-  <!-- <p>No hay nada</p>
-  {% endif %} -->
+  {% else %} 
+    <p>No hay nada</p>
+  {% endif %}
 </body>
 
 </html>

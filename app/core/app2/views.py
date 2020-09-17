@@ -35,7 +35,27 @@ class IndexDelete(DeleteView):
   template_name = 'delete.html'
   success_url = reverse_lazy('index')
 
+class IndexUpdate(UpdateView):
+  model =  ImpresoraDjango
+  template_name = 'create.html'
+  fields = [
+    'id',
+    'nombre_impresora',
+    'modelo',
+    'marca',
+    'fecha_compra',
+    'ultimo_mantenimiento',
+    'ubicacion_fisica',
+    'nombre_responsable',
+    'correo_responsable',
+    'ip'
+  ]
+  success_url = reverse_lazy('index')
 
+  # def get_context_data(self, **kwargs):
+  #       context = super(IndexUpdate, self).get_context_data(**kwargs)
+  #       context['update'] = True
+  #       return context
 
 
 

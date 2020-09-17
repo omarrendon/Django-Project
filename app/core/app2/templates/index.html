@@ -18,16 +18,16 @@
     </thead>
     <tbody>
       <p>Crear nuevo registro </p>
-      <a href="{% url 'create'  %}"> + </a>
+      <a href="{% url 'impresoras:create'  %}"> + </a>
       <hr>
       {% for impresora in impresoraList %}
-      <tr>
+      <tr> 
         <td>
           <p>Nombre de la impresora : {{ impresora.nombre_impresora }}</p>
         </td>
         <td>
-          <a class="btn btn-danger" href="{% url 'delete' impresora.id %}">Eliminar {{impresora.id}}</a>
-          <a class="btn btn-danger" href="{% url 'update' impresora.id %}">Editar {{impresora.id}}</a>
+          <a class="btn btn-danger" href="{% url 'impresoras:delete' impresora.id %}">Eliminar {{impresora.id}}</a>
+          <a class="btn btn-danger" href="{% url 'impresoras:update' impresora.id %}">Editar {{impresora.id}}</a>
         </td>
       </tr>
       {% endfor %}

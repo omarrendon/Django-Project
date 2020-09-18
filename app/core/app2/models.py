@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class ImpresoraDjango(models.Model):
-  id = models.IntegerField(primary_key=True)
+  # id = models.IntegerField(primary_key=True)
   # id = models.AutoField(primary_key=True)
   nombre_impresora = models.TextField(max_length=50)
   modelo = models.TextField(max_length=50)

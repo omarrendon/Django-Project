@@ -1,20 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DELETE</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>Delete Django</title>
 </head>
+
 <body>
-  <form action="" method="POST">  
-    {% csrf_token%}
-    {% if impresora %}
-      <p>Nombre : {{ impresora.nombre_impresora }}</p>
-      <button type="submit">Eliminar</button>
-      <a href="{% url 'index' %}"> Cancelar </a>
-    {% else %}
-    <p>No se encontro nada</p>
-    {% endif %}
-  </form>
+  <div class="container">
+    <div class="row">
+      <div class="col mt-3">
+        <p class="h1 text-danger text-center">Eliminar Registro</p>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-3">
+        <form action="" method="POST">
+          {% csrf_token%}
+          {% if impresora %}
+          
+          <div class="row">
+            <div class="col-md-6">
+              <label for="" class="text-primary h4">Nombre Impresora</label>
+              <p class="h5">{{ impresora.nombre_impresora }}</p>
+
+              <label for="" class="text-primary h4">Modelo</label>
+              <p class="h5">{{ impresora.modelo }}</p>
+
+              <label for="" class="text-primary h4">Marca</label>
+              <p class="h5">{{ impresora.marca }}</p>
+            </div>
+            <div class="col-md-6">
+              <label for="" class="text-primary h4">Fecha de Compra</label>
+              <p class="h5">{{ impresora.fecha_compra }}</p>
+
+              <label for="" class="text-primary h4">Ultimo Mantenimiento</label>
+              <p class="h5">{{ impresora.ultimo_mantenimiento }}</p>
+
+              <label for="" class="text-primary h4">Nombre del Resnposable</label>
+              <p class="h5">{{ impresora.nombre_responsable }}</p>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-12">
+              <hr>
+              <button type="submit" class="btn btn-danger ">Eliminar</button>
+              <a href="{% url 'impresoras:index' %}" class="btn btn-success ml-3"> Cancelar </a>
+            </div>
+          </div>
+          
+          {% else %}
+          <p>No se encontro nada</p>
+          {% endif %}
+        </form>
+        <hr>
+      </div>
+    </div>
+
+  </div>
+
 </body>
+
 </html>

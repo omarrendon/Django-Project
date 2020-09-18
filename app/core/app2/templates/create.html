@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Resultado</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title> Create Django </title>
 </head>
+
 <body>
-  <form method="POST" action="">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Guardar</button>
-  </form>
+  <div class="container">
+
+    <div class="row">
+      <div class="col mt-3">
+        <p class="h1 text-info text-center">Crear nuevo registro</p>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-3">
+        <a class="btn btn-success" href="{% url 'impresoras:index'  %}">Menú Principal</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-3">
+        <form method="POST" action="">
+            {% csrf_token %} 
+            <table class="table">
+              <tr>
+                <th scope="col">{{form.as_table}}</th>
+              </tr>
+           
+            </table>
+            <button type="submit" class="btn btn-primary ml-5 mb-5">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
 </body>
+
 </html>

@@ -16,7 +16,7 @@ class IndexCreate(CreateView):
   model = ImpresoraDjango
   template_name = 'create.html'
   fields = [
-    'id',
+    # 'id',
     'nombre_impresora',
     'modelo',
     'marca',
@@ -27,19 +27,19 @@ class IndexCreate(CreateView):
     'correo_responsable',
     'ip'
   ]
-  success_url = reverse_lazy('index')
+  success_url = reverse_lazy('impresoras:index')
 
 class IndexDelete(DeleteView):
   model = ImpresoraDjango
   context_object_name = 'impresora'
   template_name = 'delete.html'
-  success_url = reverse_lazy('index')
+  success_url = reverse_lazy('impresoras:index')
 
 class IndexUpdate(UpdateView):
   model =  ImpresoraDjango
   template_name = 'create.html'
   fields = [
-    'id',
+    # 'id',
     'nombre_impresora',
     'modelo',
     'marca',
@@ -50,7 +50,7 @@ class IndexUpdate(UpdateView):
     'correo_responsable',
     'ip'
   ]
-  success_url = reverse_lazy('index')
+  success_url = reverse_lazy('impresoras:index')
 
   # def get_context_data(self, **kwargs):
   #       context = super(IndexUpdate, self).get_context_data(**kwargs)

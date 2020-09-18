@@ -4,38 +4,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Django App</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>Django CRUD App</title>
 </head>
 
 <body>
-  <!-- {% if impresoraList %} -->
-  <table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Eliminar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <p>Crear nuevo registro </p>
-      <a href="{% url 'impresoras:create'  %}"> + </a>
-      <hr>
-      {% for impresora in impresoraList %}
-      <tr> 
-        <td>
-          <p>Nombre de la impresora : {{ impresora.nombre_impresora }}</p>
-        </td>
-        <td>
-          <a class="btn btn-danger" href="{% url 'impresoras:delete' impresora.id %}">Eliminar {{impresora.id}}</a>
-          <a class="btn btn-danger" href="{% url 'impresoras:update' impresora.id %}">Editar {{impresora.id}}</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  {% else %} 
-    <p>No hay nada</p>
+  {% if impresoraList %}
+  <div class="container">
+    <div class="row">
+      <div class="col mt-3">
+        <p class="h1 text-info text-center">Django CRUD App</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-3">
+        <a href="{% url 'impresoras:create'  %}">
+          <p class="h3">Crear Nuevo Registro</p>
+        </a>
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-5">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"> Nombre Impresora</th>
+              <th scope="col"> Modelo</th>
+              <th scope="col"> Marca</th>
+              <th scope="col"> Fecha de Compra</th>
+              <th scope="col"> Ultimo Mnatenimiento</th>
+              <th scope="col"> Ubicación Física</th>
+              <th scope="col"> Nombre Responsable</th>
+              <th scope="col"> Correo Responsable</th>
+              <th scope="col"> IP</th>
+              <th scope="col">Eliminar</th>
+              <th scope="col">Editar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for impresora in impresoraList %}
+            <tr>
+              <th scope="row">
+                {{ impresora.nombre_impresora }}
+              </th>
+              <th scope="row">
+                {{ impresora.modelo }}
+              </th>
+              <th>
+                {{ impresora.marca }}
+              </th>
+              <th>
+                {{ impresora.fecha_compra }}
+              </th>
+              <th>
+                {{ impresora.ultimo_mantenimiento }}
+              </th>
+              <th>
+                {{ impresora.ubicacion_fisica }}
+              </th>
+              <th>
+                {{ impresora.nombre_responsable }}
+              </th>
+              <th>
+                {{ impresora.correo_responsable }}
+              </th>
+              <th>
+                {{ impresora.ip }}
+              </th>
+              <th>
+                <a class="btn btn-danger" href="{% url 'impresoras:delete' impresora.id %}">Eliminar</a>
+              </th>
+              <th>
+                <a class="btn btn-success" href="{% url 'impresoras:update' impresora.id %}">Editar</a>
+              </th>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  {% else %}
+  <p class="h1 text-center text-primary">No hay nada</p>
   {% endif %}
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
